@@ -26,7 +26,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "dev": "nodemon ./app.js",
-    "prod": "node --max-old-space-size=4096./node_modules/@angular/cli/bin/ng build --prod"
+    "prod": "node --max-old-space-size=4096./node_modules/@angular/cli/bin/ng build --prod",
+    "commit":"git add . && git commit -m \"helloo\" && git push origin master && npm run deply" 
   },
   "devDependencies": {
     "auth0-js": "^9.7.3",
