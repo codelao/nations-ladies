@@ -79,7 +79,10 @@ app.post('/addmeeting', (req, res) => {
         description,
         summary,
         start,
-        end
+        end,
+        isReach, 
+        location, 
+        email
     } = req.body;
     var xstart = start
     var xend = end
@@ -98,6 +101,10 @@ app.post('/addmeeting', (req, res) => {
             "dateTime":xstart
             },
            attendees:[{email:'sethlaolu@gmail.com'}, {email:'princessdami@gmail.com'}],
+           extendedProperties:{
+               "shared":{isReach:isReach, email:email}
+           },
+           location: location
         }
     }, (err, resp) => {
         console.log(err)

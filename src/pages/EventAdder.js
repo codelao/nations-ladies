@@ -4,6 +4,7 @@ import * as Datetime from 'react-datetime';
 import styled from 'styled-components';
 import history from '../components/history';
 import api from '../functions/api';
+import {Button} from 'react-bootstrap'
 
 
 const EventWrapper = styled.div`
@@ -21,7 +22,7 @@ export default class EventAdder extends Component{
         if(!Boolean(localStorage.getItem('logged'))){
             this.props.history.replace("/home")
         }
-        this.state = {summary: '', date:'', description:''};
+        this.state = {summary: '', date:'', description:'', location:'', isReach:false};
         this.handleSummary = this.handleSummary.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDate = this.handleDate.bind(this);
@@ -37,12 +38,15 @@ export default class EventAdder extends Component{
         var nEvent = this.state
         api.writeEventData(nEvent).then((res)=> {
             console.log(res)
-            history.replace('/member')
+            history.replace('/calendar')
         })
         event.preventDefault()
     }
     handleDate(event){
         this.setState({date: event._d})
+    }
+    handleLocationChange(event){
+        this.setState({address: event.target.value})
     }
     render(){
         return (
@@ -56,6 +60,13 @@ export default class EventAdder extends Component{
         id="formSummary"
         type="text"
         />
+        <FieldGroup 
+            onChange={this.handleLocationChange}
+            value={this.state.location}
+            id="formLocation"
+            label="Location"
+            rows="2"
+            />
          <FieldGroup
             id="formDescription"
             componentClass="textarea"
@@ -63,7 +74,7 @@ export default class EventAdder extends Component{
             onChange={this.handleDescription}
             rows="3"
         />  
-        <input type="submit" value="Submit" />
+        <Button onClick={this.handleSubmit}>Submit</Button> 
         </form>
         </EventForm>
         </EventWrapper>

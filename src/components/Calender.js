@@ -2,7 +2,6 @@ import React, {Component} from "react"
 import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import history from './history'
-import { Button } from 'react-bootstrap';
 import api from '../functions/api';
 import {convertDateToMoment, isInFuture, formatEvent} from '../functions/utils';
 
@@ -39,16 +38,9 @@ export default class Calender extends Component{
         localStorage.setItem('event', JSON.stringify(event))
         history.push(`/meeting/${event.id}`)
     }
-    addEvent(){
-        history.push("/addreach")
-        window.location.reload(true);
-    }
-    addmmeet(){
-        history.push("/addmeeting");
-        window.location.reload(true);
-    }
     componentDidMount(){
-        api.getEvents().then(events => {       
+        api.getEvents().then(events => {   
+            console.log(events)    
             var {data} = events
             console.log(data)
             var formattedEvents = data.map(formatEvent)
@@ -73,12 +65,6 @@ export default class Calender extends Component{
             },
         }}
             />
-                <Button onClick={this.addEvent} bsStyle="primary" bsSize="large" active>
-                   New Chapter Meeting
-                </Button>
-                <Button bsSize="large" onClick={this.addmmeet} active>
-                   New Mentee Appointment
-                </Button>
         </div>
         )
     }

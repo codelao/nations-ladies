@@ -7,6 +7,12 @@ body {
   grid-row: 1/20 !important;
   grid-column: 1/101 !important;
 }
+.Footer{
+  background-color: gray;
+  padding: 3%;
+  height: 100%;
+  box-shadow: 0 50vh 0 50vh;
+}
 
 .home > #info{
   grid-row: 40/60;
@@ -17,7 +23,15 @@ body {
   box-shadow: #000; 
   height: 50vh;
 }
-
+.mentor_home{
+  background-color: #000;
+  color: #00A160 !important;
+}
+.upcoming_event{
+  background-color: grey;
+  border-radius: 5px;
+  margin: 5px;
+}
 .home > #bottombar{
   grid-row: 60/70;
   grid-column: 1/101;
@@ -35,7 +49,7 @@ img {
   color:#00A160;
   display: grid;
 grid-template-columns: repeat(100,1vw);
-grid-template-rows: repeat(100,2vh);
+grid-auto-rows: auto;
 }
 .home #homebar{
   grid-column: 1/101;
@@ -81,4 +95,34 @@ grid-template-rows: repeat(100,2vh);
 }
 #botnavtext > li > a{
   color: white;
+}
+.PublicPageHeading{
+  background-color: #00A160;
+  padding-top: 3%;
+  padding-bottom: 2.5%;
+  color: white;
+  grid-row: 1/10;
+  grid-column:1/101;
+}
+
+.PublicPageHeading > .Heading{
+  font-family: cursive;
+  font-size: 500%;
+
+}
+.PublicPageHeading > .Text{
+  font-size: 150%;
+}
+.PublicPageMainText {
+  text-align: left;
+  grid-row: 10/20;
+  grid-column: 1/101;
+  padding-left: 250px;
+  padding-right: 250px;
+  background-color: white;
+  padding-top: 50px;
+  padding-bottom: 75px
+}
+.PublicPageMainText > .MainText{
+  color: black;
 }

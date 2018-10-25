@@ -17,13 +17,5 @@ export default class Loading extends Component{
                 <ReactLoading height="50vh" width="50vw" color="black" type="bars"/>
             </div>
         )
-        /*
-        if(loading){
-            return <ReactLoading height={667} width={375}/>
-        }else{
-            return <Redirect to="/member"/>
-        }
-        */
-        
     }
 } 

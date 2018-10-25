@@ -1,14 +1,24 @@
+import React from 'react';
 const MentorHomeEvents = ({upcomingEvents, numberOfEventsAttended}) => {
+    console.log('in mentor home events function', upcomingEvents, numberOfEventsAttended)
     return(
-        <div>
+        <div >
+            <h1></h1>
             Attendance {numberOfEventsAttended}
-            {upcomingEvents.map(event=> {
+            <div class="upcoming_events">
+                {upcomingEvents.map((event, i)=> {
+                console.log('upcoming maps events', event)
                 return(
-                    <div>
-                        <p>{upcomingEvents.title}</p>
+                    <div class="upcoming_event">
+                        <a  href={`/meeting/${event.id}`} key={i}>
+                        <h3 id="event_title">{event.title}</h3>
+                        <p id="event_description">{event.description}</p>   
+                    </a>
                     </div>
+                    
                 )
             })}
+            </div>
         </div>
     )
 }

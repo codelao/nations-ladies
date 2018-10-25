@@ -14,11 +14,14 @@ import Profiles from './components/Profiles';
 import Loading from './pages/Loading'
 import MenteeAdder from './pages/MenteeAdder'
 import api from './functions/api'
-
 import 'bootstrap/dist/css/bootstrap.css';
 import 'mdbreact/dist/css/mdb.css' 
 import 'react-bootstrap'
 import 'mdbreact/dist/css/style.css'
+import MentorHome from './pages/MentorHome';
+import SafeGuarding from './pages/SafeGuarding'
+import Services from './pages/Services'
+import Events from './pages/Events'
 
 const authenticatedPaths = ['calendar', 'addreach', 'addmeeting', 'meetings', 'profiles']
 const authenticatedComponents = [Calender, MenteeAdder, EventAdder, MyMeetings, Profiles]
@@ -28,9 +31,12 @@ const UnAuthenticatedRoutes = (
         <Route exact path="/" component={Home}/>
         <Route exact path="/loading" component={Loading}/>
         <Route exact path="/about" component={About}/>
+        <Route exact path="/service" component={Services}/>
+        <Route exact path="/events" component={Events}/>
         <Partners/> 
         </Switch>
 )
+
 const AuthenticatedRoutes = (
   <Switch>
         <Route exact path="/calendar" component={Calender}/>
@@ -39,7 +45,9 @@ const AuthenticatedRoutes = (
         <Route exact path="/addmeeting" component={EventAdder} />
         <Route exact path="/meetings" component={MyMeetings}/>
         <Route exact path="/profiles" component= {Profiles}/>
-        </Switch>
+        <Route exact path="/mentorhome" component={MentorHome}/>
+        <Route exact path="/safeguarding" component={SafeGuarding}/>
+        </Switch> 
 )
 
 function MakeRoutes(path, component){
