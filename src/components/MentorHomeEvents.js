@@ -2,7 +2,7 @@ import React from 'react';
 const MentorHomeEvents = ({upcomingEvents, numberOfEventsAttended}) => {
     console.log('in mentor home events function', upcomingEvents, numberOfEventsAttended)
     return(
-        <div >
+        <div>
             <h1></h1>
             Attendance {numberOfEventsAttended}
             <div class="upcoming_events">

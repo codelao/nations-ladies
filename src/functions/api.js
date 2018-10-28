@@ -5,11 +5,13 @@ var firebase = require("firebase");
 var moment = require('moment');
 var api = {}
 var shortid = require('shortid').generate
-var CircularJSON = require('circular-json')
+var CircularJSON = require('circular-json');
 var users = ['sethlaolu@gmail.com','princessdami@gmail.com', "ayekod@gmail.com", "info@nationsladies.org.uk", "renee.a.sterling@gmail.com",
 "adobea.atsrefi@gmail.com", "pammaugile@gmail.com", "info@nationsladies.org.uk"]
 const calendarUrl = 'https://us-central1-nations-ladies.cloudfunctions.net/myCalendar/';
 const adminEmail = 'sethlaolu@gmail.com'
+
+
 
 var config = {
     apiKey: "AIzaSyCaLP-xSucfV-BCCPHx2s00wbrXT64Az1w",
@@ -21,6 +23,10 @@ var config = {
 };
 var fire = firebase.initializeApp(config);
 const auth = fire.auth()
+var db = fire.firestore();
+db.settings({
+    timestampsInSnapshots: true
+});
 
 const returnUnverifiedUser = (email) => {
      const userIsVerified = users.some(userEmail => userEmail === email)
@@ -54,17 +60,10 @@ auth.onAuthStateChanged(user => {
 })
 
 var minutesRef = firebase.storage().ref()
+var minutes = db.collection("minutes")
 
-api.uploadMinutes = (files, event)=> {
-    var name = files[0].name
-    var newRef = firebase.storage().ref().child(name)
-    var metadata = {
-        customMetadata: event
-    }
-    newRef.put(files[0], metadata).then((res)=> {
-        console.log('file uploaded')
-    }).catch(console.log)
-}
+
+
 
 api.login = () => {
         var provider = new firebase.auth.GoogleAuthProvider();
@@ -124,7 +123,46 @@ api.getEvents = () => {
         .catch(console.log)
 }
 
+api.uploadMinutes = (files, event)=> {
+    var name = files[0].name;
+    var newRef = firebase.storage().ref().child(name)
+    var metadata = {
+        customMetadata: event
+    }
+    minutes.doc(name).set({
+        name: name,
+        exists: true,
+        created: moment()
+    })
+    .then(()=> {
+        console.log('successfully saved')
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });
+    newRef.put(files[0], metadata).then((res)=> {
+        console.log('file uploaded')
+    }).catch(console.log)
+}
 
+api.getAllFileNames = () => {
+    return minutes.where("exists", "==", "true")
+            .then(queryResult => {
+                return queryResult.map(query => query.name)
+            })
+            .catch(console.log)
+}
+
+api.downloadFile = (name) => {
+    return firebase.storage()
+                         .ref().child(name)
+                         .getDownloadURL()
+                         .then((url)=> {
+                             let link = document.getElementById(name);
+                             link.a = url;
+                         })
+                         .catch(console.log)
+}
 
 api.update = (data) => {
     return fetch(calendarUrl + 'updatemeeting', {

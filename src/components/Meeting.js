@@ -19,9 +19,9 @@ export default class Meeting extends Component{
     }
     componentDidMount(){
         getSpecificEvent().then((event)=> {
+            console.log('even', event)
             const formattedEvent = formatEvent(event)
-            console.log(formattedEvent)
-            this.setState({event:formatEvent(formattedEvent)})
+            this.setState({event:formattedEvent})
         })
     }
     onDrop(files) {

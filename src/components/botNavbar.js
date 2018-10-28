@@ -24,9 +24,12 @@ const LoggedInBottomNav = () =>{
                     <NavItem >
                 <NavLink to={"/safeguarding"}>Safeguarding</NavLink>
                     </NavItem>
+                    <NavItem>
+                <NavLink to={"/documents"}>Documents</NavLink>
+                    </NavItem>    
             </Nav>
-)
-    } 
+    )
+} 
 
 const LoggedOutBottomNav = () => {
     return (

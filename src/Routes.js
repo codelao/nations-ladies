@@ -22,6 +22,8 @@ import MentorHome from './pages/MentorHome';
 import SafeGuarding from './pages/SafeGuarding'
 import Services from './pages/Services'
 import Events from './pages/Events'
+import Paydues from './pages/Paydues'
+
 
 const authenticatedPaths = ['calendar', 'addreach', 'addmeeting', 'meetings', 'profiles']
 const authenticatedComponents = [Calender, MenteeAdder, EventAdder, MyMeetings, Profiles]
@@ -47,7 +49,12 @@ const AuthenticatedRoutes = (
         <Route exact path="/profiles" component= {Profiles}/>
         <Route exact path="/mentorhome" component={MentorHome}/>
         <Route exact path="/safeguarding" component={SafeGuarding}/>
+        <Route exact path="/paydues" component={Paydues}/>
         </Switch> 
+)
+
+const Footer = (
+  <div class="Footer"></div>
 )
 
 function MakeRoutes(path, component){
@@ -69,8 +76,7 @@ export const makeMainRoutes = () => {
       <div>
         {!loading && <NavBar/>}
           {UnAuthenticatedRoutes}
-         {logged && AuthenticatedRoutes
-         }  
+         {logged && AuthenticatedRoutes}  
       </div>
     </Router>
   );

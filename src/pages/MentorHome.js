@@ -33,13 +33,13 @@ export default class MentorHome extends Component{
     }
     render(){
         return(<div class="mentor_home">
-            {MentorHomeEvents(this.state)}
             {isAdmin()&&(<Button onClick={this.addmeet} bsStyle="primary" bsSize="large" active>
                    New Chapter Meeting
             </Button>)}
                 <Button bsSize="large" onClick={this.addEvent} active>
                    Reach Mentoring Appointment
                 </Button>
+            {MentorHomeEvents(this.state)}
         </div>)
     }
 }

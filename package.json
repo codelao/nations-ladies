@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.1.3",
+    "clone": "^2.1.2",
     "mdbreact": "^4.8.1",
     "normalize.css": "^8.0.0",
     "rc-time-picker": "^3.4.0",
@@ -21,13 +22,13 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "react-scripts build && firebase deploy",
+    "deploy": "git add . && git commit -m \"helloo\" && git push origin master && react-scripts build && firebase deploy",
     "heroku-postbuild": "npm install && npm run build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "dev": "nodemon ./app.js",
     "prod": "node --max-old-space-size=4096./node_modules/@angular/cli/bin/ng build --prod",
-    "commit":"git add . && git commit -m \"helloo\" && git push origin master && npm run deploy" 
+    "commit": "git add . && git commit -m \"commitment\" && git push origin master"
   },
   "devDependencies": {
     "auth0-js": "^9.7.3",

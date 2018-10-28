@@ -2,6 +2,7 @@ import moment from 'moment';
 import { matchPath } from "react-router";
 import history from "../components/history";
 import api from "../functions/api";
+import clone from "clone";
 const {getEvents} = api;
 var now = moment()
 
@@ -29,8 +30,13 @@ const getMatchPath = () => {
 
 const getSpecificEvent = () => {
     return getEvents().then((res)=> {
-        const events = res.data
-        return events.find(event => event.id === getMatchPath())
+        let events = res.data;
+        events = events.map(event => {
+            return event
+        })
+        let eventById = events.find(event => event.id === getMatchPath());
+        let returnEvent = JSON.parse(JSON.stringify(eventById));
+        return returnEvent;
     })
 }
 
@@ -38,8 +44,11 @@ const isInFuture = (date) => {
     return now.isAfter(date)
 }
 
-const convertDateToMoment = (date) => {
-    return moment(date).toDate()
+const convertDateToMoment = (originalDate) => {
+    let date = clone(originalDate);
+    let convertedDate = moment(date.dateTime).toDate();
+    console.log(date, convertedDate);
+    return convertedDate;
 }
 
 /*const addAgendaLinks = (agendaHTMLElements, events) => {
@@ -68,9 +77,12 @@ const eventCreatedByCurrentUser = (event) => {
 }
 
 const formatEvent = (event) => {
-    const email = localStorage.getItem("email")
-    event.start = convertDateToMoment(event.start.dateTime);
-    event.end = convertDateToMoment(event.end.dateTime);
+    const email = localStorage.getItem("email");
+    console.log(event);
+    event.start = convertDateToMoment(event.start);
+    event.end = convertDateToMoment(event.end);
+    let test = clone(event);
+    console.log(test);
     event.title = event.summary;
     event.isReach = false
     if(!event.attendees){
@@ -89,7 +101,6 @@ const formatEvent = (event) => {
 
 const parseEvents = (events) => {
     events = events.filter(event => event !== undefined)
-    console.log(events)
     const upcomingEvents = events.filter(isInFuture);
     const reachEvents = events.filter(event => event.isReach)
     const mentorEvents = events.filter(event => !event.isReach)

@@ -19,16 +19,17 @@ export default class Home extends Component {
                           showIndicators={false} 
                           showStatus={false} 
                           autoPlay={true}
+                          swipeScrollTolerance={10}
+                          infiniteLoop={true}
                           id="car">
                     <img alt="900x500" src={img1}/>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <img src="https://www.tate.org.uk/art/images/work/T/T02/T02343_10.jpg"/>
+                    <img src="https://artsy-media-uploads.s3.amazonaws.com/9W-CnGwPPZ1tz5WU-gyd-g%2FPodcastTemplate.png"/>
                 </Carousel>
                 </div>
                 <div id="middle"/>
                 <div id="homebar"/>
                 <div id="info">
-
                 </div>
                 <div id="bottombar">
                 </div>
