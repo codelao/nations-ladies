@@ -12,7 +12,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 export default class Home extends Component {
     render(){
         return(
-        <div class="home">
+        <div id="home">
                 <div id="carousel">
                 <Carousel showThumbs={false} 
                           showArrows={false} 
@@ -22,10 +22,13 @@ export default class Home extends Component {
                           swipeScrollTolerance={10}
                           infiniteLoop={true}
                           id="car">
-                    <img alt="900x500" src={img1}/>
+                    <img alt="900x300" src={img1}/>
                     <img src="https://www.tate.org.uk/art/images/work/T/T02/T02343_10.jpg"/>
                     <img src="https://artsy-media-uploads.s3.amazonaws.com/9W-CnGwPPZ1tz5WU-gyd-g%2FPodcastTemplate.png"/>
                 </Carousel>
+                </div>
+                <div id="left">
+                    <h1 class="home_title">Our Mission</h1>
                 </div>
                 <div id="middle"/>
                 <div id="homebar"/>
@@ -33,6 +36,7 @@ export default class Home extends Component {
                 </div>
                 <div id="bottombar">
                 </div>
+                <div id="Footer"></div>
         </div>
         )
     }

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Dropzone from 'react-dropzone'
 import { Button, ToggleButtonGroup, ToggleButton} from 'react-bootstrap';
 import {formatDateForDisplay} from '../functions/utils'
 
 const MeetingItem = (event, handleCheck, attending, onDrop, upload, files) => {
     console.log('event',event);
-    const {description, title, end, start} = event
+    const {title, end, start} = event
     return (
         <div>
     Meeting Description -- {title}

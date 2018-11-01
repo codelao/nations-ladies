@@ -34,21 +34,7 @@ const LoggedInBottomNav = () =>{
 const LoggedOutBottomNav = () => {
     return (
         <Nav pullLeft={true} navbar={true} bsStyle={"tabs"} id="botnavtext">
-        <NavItem>
-            <NavLink to={"/"}>Home</NavLink>
-        </NavItem>
-        <NavItem>
-            <NavLink to={"/about"}>About</NavLink>
-        </NavItem>
-        <NavItem>
-            <NavLink to={"/service"}>Service</NavLink>
-        </NavItem>
-        <NavItem>
-            <NavLink to={"/events"}>Events</NavLink>
-        </NavItem>
-        <NavItem>
-            <NavLink to={"/donate"}>Donate</NavLink>
-        </NavItem>
+
     </Nav>
     )
 }

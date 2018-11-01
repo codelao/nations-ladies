@@ -1,10 +1,7 @@
 import history from "../components/history"
-var API_URL = 'http://localhost:7000/api'
-var gen = require('shortid').generate();
 var firebase = require("firebase");
 var moment = require('moment');
 var api = {}
-var shortid = require('shortid').generate
 var CircularJSON = require('circular-json');
 var users = ['sethlaolu@gmail.com','princessdami@gmail.com', "ayekod@gmail.com", "info@nationsladies.org.uk", "renee.a.sterling@gmail.com",
 "adobea.atsrefi@gmail.com", "pammaugile@gmail.com", "info@nationsladies.org.uk"]
@@ -59,11 +56,7 @@ auth.onAuthStateChanged(user => {
     }
 })
 
-var minutesRef = firebase.storage().ref()
 var minutes = db.collection("minutes")
-
-
-
 
 api.login = () => {
         var provider = new firebase.auth.GoogleAuthProvider();

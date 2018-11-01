@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, NavbarBrand, NavItem, NavLink, NavbarNav, Nav} from 'mdbreact';
+import {NavItem, NavLink} from 'mdbreact';
 
 const NavbarItem = (navText, linkPath, activeHref) => {
     return (<NavItem activeHref={`/${activeHref}`}>

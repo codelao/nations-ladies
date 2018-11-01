@@ -9,7 +9,6 @@ import EventAdder from './pages/EventAdder';
 import About from './pages/About'
 import Meeting from './components/Meeting'
 import MyMeetings from './components/MyMeetings';
-import Partners from './components/Partners';
 import Profiles from './components/Profiles';
 import Loading from './pages/Loading'
 import MenteeAdder from './pages/MenteeAdder'
@@ -23,7 +22,9 @@ import SafeGuarding from './pages/SafeGuarding'
 import Services from './pages/Services'
 import Events from './pages/Events'
 import Paydues from './pages/Paydues'
-
+import ChapterExex from './pages/ChapterExec';
+import Partners from './pages/Partners';
+import ContactUs from './pages/ContactUs'
 
 const authenticatedPaths = ['calendar', 'addreach', 'addmeeting', 'meetings', 'profiles']
 const authenticatedComponents = [Calender, MenteeAdder, EventAdder, MyMeetings, Profiles]
@@ -35,7 +36,8 @@ const UnAuthenticatedRoutes = (
         <Route exact path="/about" component={About}/>
         <Route exact path="/service" component={Services}/>
         <Route exact path="/events" component={Events}/>
-        <Partners/> 
+        <Route exact path="/partners" component={Partners}/>
+        <Route exact path="/contactus" component={ContactUs}/>
         </Switch>
 )
 
@@ -49,6 +51,7 @@ const AuthenticatedRoutes = (
         <Route exact path="/profiles" component= {Profiles}/>
         <Route exact path="/mentorhome" component={MentorHome}/>
         <Route exact path="/safeguarding" component={SafeGuarding}/>
+        <Route exact path="/chapterexec" component={ChapterExex}/>
         <Route exact path="/paydues" component={Paydues}/>
         </Switch> 
 )
