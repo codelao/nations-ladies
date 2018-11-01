@@ -13,6 +13,7 @@ export default class Home extends Component {
     render(){
         return(
         <div id="home">
+                <div id="nl_tag"><h3>Building Leaders</h3><h1>NATIONS LADIES</h1><h3>London(UK) Chapter of The Links, Incorporated</h3></div>
                 <div id="carousel">
                 <Carousel showThumbs={false} 
                           showArrows={false} 

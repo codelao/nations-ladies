@@ -2,6 +2,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  height:100%;
+}
+html{
+  height:100%;
 }
 
 #togglebutton{
@@ -12,26 +16,19 @@ body {
   color: white;
 }
 #carousel{
-  grid-row: 1/101 !important;
+  grid-row: 30/120 !important;
   grid-column: 1/102 !important;
 }
 .slider-wrapper.axis-horizontal{
-  grid-column: 1/40;
-  grid-row: 1/101;
+
   height: 27.7rem !important;
 }
 .Footer{
   background-color: gray;
   padding: 3%;
-  height: 100%;
+  height: 20%;
   box-shadow: 0 50vh 0 50vh;
 }
-#Footer{
-  background-color: gray;
-  grid-row: 140/160;
-  grid-column: 1/101;
-}
-
 
 .home > #info{
   grid-row: 40/60;
@@ -72,16 +69,18 @@ input {
   text-align:center;
   color:#00A160;
   display: grid;
-  grid-template-columns: repeat(100,1%);
+  grid-template-columns: repeat(200,1%);
   grid-auto-rows: auto;
 }
+
 #home {
   text-align:center;
   background-color:#00A160;
   display: grid;
-  grid-template-columns: repeat(100,1%);
-  grid-template-rows: repeat(300,1%);
+  grid-template-columns: repeat(200,1%);
+  grid-template-rows: repeat(100,1%);
 }
+
 #home #homebar{
   grid-column: 1/101;
   grid-row:101/140;
@@ -90,7 +89,7 @@ input {
 }
 #home #middle{
   grid-column:34/67;
-  grid-row:101/140;
+  grid-row:119/140;
   opacity:0.7;
   background-color:black;
 }
@@ -99,6 +98,14 @@ input {
   grid-column: 1/101;
 }
 
+#home > #nl_tag{
+  padding-top: 2%;
+  grid-row: 1/30;
+  grid-column: 1/101;
+  text-align: center;
+  color: white;
+  font-family: cursive;
+}
 #home #right{
 }
 
