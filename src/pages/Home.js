@@ -19,7 +19,8 @@ export default class Home extends Component {
                           showIndicators={false} 
                           showStatus={false} 
                           autoPlay={true}
-                          swipeScrollTolerance={10}
+                          interval={10000}
+                          transitionTime={700}
                           infiniteLoop={true}
                           id="car">
                     <img alt="900x300" src={img1}/>
