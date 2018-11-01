@@ -102,7 +102,7 @@ const formatEvent = (event) => {
 const parseEvents = (events) => {
     events = events.filter(event => event !== undefined)
     const upcomingEvents = events.filter(isInFuture);
-    const reachEvents = events.filter(event => event.isReach)
+    const reachEvents = events.filter(event => !event.isReach)
     const mentorEvents = events.filter(event => !event.isReach)
     const pastEvents = events.filter(event => isInFuture(event) === false)
     const numberOfPastEvents = pastEvents.length
