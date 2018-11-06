@@ -78,11 +78,8 @@ const eventCreatedByCurrentUser = (event) => {
 
 const formatEvent = (event) => {
     const email = localStorage.getItem("email");
-    console.log(event);
     event.start = convertDateToMoment(event.start);
     event.end = convertDateToMoment(event.end);
-    let test = clone(event);
-    console.log(test);
     event.title = event.summary;
     event.isReach = false
     if(!event.attendees){

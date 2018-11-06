@@ -3,7 +3,7 @@ import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import history from './history'
 import api from '../functions/api';
-import {convertDateToMoment, isInFuture, formatEvent} from '../functions/utils';
+import { formatEvent} from '../functions/utils';
 
 const localizer = BigCalendar.momentLocalizer(moment) 
 
@@ -29,7 +29,7 @@ export default class Calender extends Component{
     constructor(props){
         super(props)
         var logged = localStorage.getItem("logged")
-        if(logged == "false" ){
+        if(logged === "false" ){
             history.replace("/")
         }
         this.state = {data:[]}

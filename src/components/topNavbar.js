@@ -1,26 +1,24 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Navbar, NavbarBrand, NavItem, NavLink, NavbarNav, Nav} from 'mdbreact';
+import { Navbar, NavItem, NavLink, Nav} from 'mdbreact';
 import img from "../images/Links_GREEN_Logo.png";
 
 function topNav(logged, login, logout) {
-
           return (
             <Navbar id="topnav">
-                  
               {logged === 'true'&&(
                 <Nav pullLeft={true} navbar={true} bsStyle={"tabs"} id="topnavtext">
-                <a href="/" id="logo_a" onClick={logout}><img id="img_logo" src={img}/></a>
+                <a href="/" id="logo_a" onClick={logout}><img alt="logo" id="img_logo" src={img}/></a>
                 <NavItem eventkey={1}>
                 <NavLink to="/#">{localStorage.getItem('display')}
                   </NavLink>                 
             </NavItem>
               <NavItem eventkey={2} onClick={logout}><NavLink to="/#">Logout</NavLink>
               </NavItem>
+              
               </Nav>
-            )}{logged != 'true'&&(
+            )}{logged !== 'true'&&(
               <Nav id="topnavtext">
-              <a href="/" id="logo_a" onClick={logout}><img id="img_logo" src={img}/></a>
+              <a href="/" id="logo_a" onClick={logout}><img alt="logo" id="img_logo" src={img}/></a>
               <NavItem>
             <NavLink to={"/"}>Home</NavLink>
         </NavItem>

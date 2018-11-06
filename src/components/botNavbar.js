@@ -2,11 +2,12 @@ import React from 'react';
 import { Navbar, NavItem, NavLink, Nav} from 'mdbreact';
 import NavbarItem from './NavbarItem';
 import {history} from './index'
+import {formatEvent, parseEvents, isAdmin} from '../functions/utils'
 const MentorHomeItem = NavbarItem('Home', 'mentorhome', 'mentorhome')
 
 
 
-const LoggedInBottomNav = () =>{
+const LoggedInBottomNav = (addChapterMeeting, addReachMeeting) =>{
     return (
 <Nav pullLeft={true} navbar={true} bsStyle={"tabs"} id="botnavtext">
                 <NavItem>
@@ -26,7 +27,13 @@ const LoggedInBottomNav = () =>{
                     </NavItem>
                     <NavItem>
                 <NavLink to={"/documents"}>Documents</NavLink>
-                    </NavItem>    
+                    </NavItem>  
+                    {isAdmin()&&(<NavItem onClick={addChapterMeeting}>
+                        <NavLink to={"/#"}>New Chapter Meeting</NavLink>
+            </NavItem>)}
+                <NavItem onClick={addReachMeeting}>
+                   <NavLink to={"/#"}>Reach Mentoring Appointment</NavLink>
+                </NavItem>  
             </Nav>
     )
 } 
@@ -38,11 +45,11 @@ const LoggedOutBottomNav = () => {
     </Nav>
     )
 }
-function botNav(logged) {
+function botNav(logged, addChapterMeeting, addReachMeeting) {
     return (
         <Navbar id="botnav" fixedTop={true}>{
             logged === 'true'&&(
-                <LoggedInBottomNav/>
+                LoggedInBottomNav(addChapterMeeting, addReachMeeting)
             )
         }{
             logged != 'true'&&(

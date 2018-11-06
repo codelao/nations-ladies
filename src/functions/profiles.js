@@ -1,7 +1,6 @@
 var faker = require('faker');
 
-var randomName = faker.name.findName(); 
-var randomEmail = faker.internet.email();
+
 
 var users =[]
 var responses = []
@@ -12,8 +11,10 @@ for(var i=0; i<10;i++){
     newUser.email = info[1];
     users.push(newUser)
 }
-for(var i=0; i<3;i++){
+
+for(i=0; i<3;i++){
     var event = faker.fake("{{date.future}}/{{random.words}}").split("/")
+    // eslint-disable-next-line
     users.forEach((user)=> {
         var copy = JSON.parse(JSON.stringify(user));
         copy.attendance = faker.random.boolean()

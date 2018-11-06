@@ -27,6 +27,7 @@ export default class EventAdder extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDate = this.handleDate.bind(this);
         this.handleDescription = this.handleDescription.bind(this);
+        this.handleLocationChange = this.handleLocationChange.bind(this);
     }
     handleSummary(event) {
         this.setState({summary: event.target.value});
@@ -46,7 +47,7 @@ export default class EventAdder extends Component{
         this.setState({date: event._d})
     }
     handleLocationChange(event){
-        this.setState({address: event.target.value})
+        this.setState({location: event.target.value})
     }
     render(){
         return (
@@ -62,7 +63,6 @@ export default class EventAdder extends Component{
         />
         <FieldGroup 
             onChange={this.handleLocationChange}
-            value={this.state.location}
             id="formLocation"
             label="Location"
             rows="2"

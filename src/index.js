@@ -1,4 +1,5 @@
 import ReactDOM from 'react-dom';
+import footer from './components/Footer.js'
 import './css/index.css';
 import './css/calendar.css';
 import './css/react-datetime.css';
@@ -15,9 +16,8 @@ require('normalize.css')
 const routes = makeMainRoutes()
 
 
-
 ReactDOM.render(routes, document.getElementById('root'))
-
+ReactDOM.render(footer, document.getElementById('footer'))
 
 
 

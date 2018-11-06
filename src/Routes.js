@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Route, Router, Redirect, Switch} from 'react-router-dom';
+import { Route, Router, Switch} from 'react-router-dom';
 import Home from './pages/Home';
 import history from './components/history';
 import NavBar from './components/Navbar'
@@ -25,9 +25,6 @@ import Paydues from './pages/Paydues'
 import ChapterExex from './pages/ChapterExec';
 import Partners from './pages/Partners';
 import ContactUs from './pages/ContactUs'
-
-const authenticatedPaths = ['calendar', 'addreach', 'addmeeting', 'meetings', 'profiles']
-const authenticatedComponents = [Calender, MenteeAdder, EventAdder, MyMeetings, Profiles]
 
 const UnAuthenticatedRoutes = (
 <Switch>

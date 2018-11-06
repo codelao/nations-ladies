@@ -1,14 +1,10 @@
-
+    // eslint-disable-next-line
 import React, { Component } from 'react';
-import Dropzone from 'react-dropzone'
 import history from './history'
-import { Button, ToggleButtonGroup, ToggleButton} from 'react-bootstrap';
 import api from '../functions/api';
 import {getSpecificEvent, formatEvent} from '../functions/utils';
 import MeetingItem from './MeetingItem';
 
-
-const {getEvents} = api;
 export default class Meeting extends Component{
     constructor(props){
         super(props)
@@ -31,7 +27,6 @@ export default class Meeting extends Component{
       }
       upload(){
           var {files} = this.state
-          var mark = this.id
           api.uploadMinutes(files, this.event)
           history.replace("/member")
       }

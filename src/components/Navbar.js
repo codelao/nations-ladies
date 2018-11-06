@@ -2,11 +2,7 @@ import  Top from './topNavbar';
 import Bottom from './botNavbar';
 import React, {  Component } from 'react';
 import api from '../functions/api';
-/*
-
-
-import 'bootstrap-css-only'*/
-//import 'bootstrap/dist/css/bootstrap.min.css'
+import history from '../components/history';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'mdbreact/dist/css/mdb.css' 
 import 'react-bootstrap'
@@ -26,11 +22,18 @@ export default class Navbar extends Component{
         api.logout()
         window.location.reload(true);
     }
+    addReach(){
+        history.push("/addreach")
+        window.location.reload(true);
+    }
+    addChap(){
+        history.push("/addmeeting");
+        window.location.reload(true);
+    }
     onScroll(){
         console.log('here')
     }
     update(){
-        var array = [];
         var links = document.getElementsByTagName("a");
         for(var i=0, max=links.length; i<max; i++) {
             if(links[i].href === window.location.href){
@@ -50,7 +53,7 @@ export default class Navbar extends Component{
     componentWillMount(){
         this.setState({logged: localStorage.getItem('logged')});
         console.log('state', this.state)
-        this.Bot = Bottom(this.state.logged)
+        this.Bot = Bottom(this.state.logged, this.addChap, this.addReach)
         this.Top = Top(this.state.logged, this.login, this.logout)
         this.update()
     }
