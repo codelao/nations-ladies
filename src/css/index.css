@@ -138,7 +138,19 @@ input {
 }
 #botnavtext > li{
   color: white;
-  
+}
+#topnavLI{
+  height: 13vh;
+}
+#topnavLI > #topnavtext{
+  padding-bottom: 5vh;
+  padding-top: 1vh;
+}
+
+#imglogo{
+  padding-top: 6vh;
+  height: 90%;
+  width: 90%
 }
 /**********/
 
