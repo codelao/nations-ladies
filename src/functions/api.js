@@ -141,6 +141,7 @@ api.uploadMinutes = (files, event)=> {
 api.getAllFileNames = () => {
     return minutes.where("exists", "==", "true")
             .then(queryResult => {
+                console.log(queryResult)
                 return queryResult.map(query => query.name)
             })
             .catch(console.log)
@@ -164,8 +165,5 @@ api.update = (data) => {
         body: CircularJSON.stringify({response:data})
     })
 }
-
-
-
 
 export default api

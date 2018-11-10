@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PublicPageHeading from '../components/PublicPageHeading';
 import PublicPageMainText from '../components/PublicPageMainText'
 
-
 export default class About extends Component{
 render(){
     let Heading = 'About';
@@ -15,4 +14,3 @@ render(){
     </div>)
     }
 }
-

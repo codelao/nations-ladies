@@ -126,11 +126,9 @@ app.post('/watch', (req, res)=> {
     })
 })
 
-
 app.get('/xxx', (req, res)=> {
     res.sendFile(path.join(__dirname, '/google7482907aa35ac247.html'));
 })
-
 
 exports.myCalendar = functions.https.onRequest(app)
 
@@ -150,4 +148,3 @@ exports.addCalendarEvent = functions.https.onCall((data, context)=> {
     const picture = context.auth.token.picture || null;
     const email = context.auth.token.email || null;
 })
-

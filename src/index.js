@@ -26,8 +26,4 @@ else{
     ReactDOM.render(newDiv, document.getElementById('footer'))
 }
 
-
-
-
-
 registerServiceWorker();

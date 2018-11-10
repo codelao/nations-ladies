@@ -24,7 +24,8 @@ import Events from './pages/Events'
 import Paydues from './pages/Paydues'
 import ChapterExex from './pages/ChapterExec';
 import Partners from './pages/Partners';
-import ContactUs from './pages/ContactUs'
+import ContactUs from './pages/ContactUs';
+import DocumentsPage from './pages/DocumentsPage';
 
 const UnAuthenticatedRoutes = (
 <Switch>
@@ -50,6 +51,7 @@ const AuthenticatedRoutes = (
         <Route exact path="/safeguarding" component={SafeGuarding}/>
         <Route exact path="/chapterexec" component={ChapterExex}/>
         <Route exact path="/paydues" component={Paydues}/>
+        <Route exact path="/documents" component={DocumentsPage}/>
         </Switch> 
 )
 

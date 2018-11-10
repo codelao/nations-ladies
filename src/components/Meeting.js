@@ -21,9 +21,10 @@ export default class Meeting extends Component{
         })
     }
     onDrop(files) {
-        this.setState({
-          files
-        });
+        console.log('files', files)
+        let oldFiles = this.state.files;
+        let newFiles = oldFiles.concat(files)
+        this.setState({files: newFiles});
       }
       upload(){
           var {files} = this.state
