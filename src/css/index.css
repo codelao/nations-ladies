@@ -12,13 +12,16 @@ body {
   padding: 3%;
   height: 30%;
   box-shadow: 0 50vh 0 50vh;
-  min-height: 200px;
+  min-height: 10vh;
 }
 #footer > span{
   
 }
 input {
   border: 1px solid #000;
+}
+h3{
+  font-size: 5vh !important;
 }
 /**********/
 
@@ -30,12 +33,11 @@ input {
 
 /*Home Page*/
 #carousel{
-  grid-row: 30/110 !important;
+  grid-row: 20/100 !important;
   grid-column: 1/102 !important;
   border-bottom: 1px;
 }
 .slider-wrapper.axis-horizontal{
-
   height: 47rem !important;
 }
 .slider img{
@@ -46,38 +48,50 @@ input {
   background-color:#00A160;
   display: grid;
   grid-template-columns: repeat(100,1vw);
-  grid-template-rows: repeat(200,1vh);
+  grid-template-rows: repeat(100, 0.726vw);
 }
-#home #homebar{
-  grid-column: 1/101;
-  grid-row:101/140;
-  background-color: #00A160 ;
-  filter: darken(10%); 
-}
-#home #middle{
+
+
+#below_carousel #middle{
   grid-column:34/67;
-  grid-row:139/170;
+  grid-row:1/101;
   opacity:0.7;
   background-color:black;
+  padding: 1.2vw;
 }
-#home > #left{
+#below_carousel > #left{
   grid-column: 1/34;
-  grid-row: 139/170;
+  grid-row: 1/101;
 }
-#home > #bottombar{
-  grid-row: 101/140;
+#below_carousel > #bottombar{
+  grid-row: 1/101;
   grid-column: 1/101;
 }
 
 #home > #nl_tag{
   padding-top: 2%;
-  grid-row: 1/30;
+  grid-row: 1/20;
   grid-column: 1/101;
   text-align: center;
   color: white;
-  font-family: cursive;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
+#below_carousel{
+  display: grid;
+  text-align: center;
+  color: white;
+  grid-template-columns: repeat(100, 1vw);
+  grid-template-rows: repeat(25, 1vw);
+  background-color: #00A160;
+}
+#below_carousel #middle_text{
+  text-align: justify;
+}
+
+#break{
+  padding: 1vw;
+}
 .home_title{
   color: white !important;
 }
@@ -108,24 +122,26 @@ input {
 
 /*Navbar*/
 #img_logo {
-  height:80%;
-  width:80%;
-  padding-right: 0%;
-  padding-top: 5vh;
+  height: 100%;
+  width: 100%
+
 }
 #logo_a{
-  width: 15%
+  width: 10%;
 }
 #topnav{
   background-color:white !important;
-  height: 13vh;
+
 }
 #topnavtext > li > a{
   color: #00A160 !important;
-  padding-top: 9vh;
-  padding-left: 3vw;
   font-weight: 800;
-  padding-bottom: 0vh;
+
+}
+#topnavtext > li{
+  padding-top: 2.5%;
+  padding-left: 2%;
+  font-size:1.25vw;
 }
 
 #botnav{
@@ -140,18 +156,17 @@ input {
   color: white;
 }
 #topnavLI{
-  height: 13vh;
+
 }
+
 #topnavLI > #topnavtext{
-  padding-bottom: 5vh;
-  padding-top: 1vh;
+
 }
 
 #imglogo{
-  padding-top: 6vh;
-  height: 90%;
-  width: 90%
+
 }
+
 /**********/
 
 /*publicpage*/
@@ -173,11 +188,11 @@ input {
 
 .PublicPageHeading > .Heading{
   font-family: cursive;
-  font-size: 500%;
+  font-size: 5.5vw;
 
 }
 .PublicPageHeading > .Text{
-  font-size: 150%;
+  font-size: 2vw;
 }
 .PublicPageMainText {
   text-align: left;
@@ -191,6 +206,7 @@ input {
 }
 .PublicPageMainText > .MainText{
   color: black;
+  font-size: 1.5vw;
 }
 #our_mission{
   grid-row: 10/15;

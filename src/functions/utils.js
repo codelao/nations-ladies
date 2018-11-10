@@ -27,6 +27,11 @@ const getMatchPath = () => {
         exact: true
     }).params.meeting_id
 }
+const isLoading = () => {
+    const {pathname} = history.location;
+    console.log('pathname', pathname);
+    return pathname === '/loading'
+}
 
 const getSpecificEvent = () => {
     return getEvents().then((res)=> {
@@ -51,11 +56,7 @@ const convertDateToMoment = (originalDate) => {
     return convertedDate;
 }
 
-/*const addAgendaLinks = (agendaHTMLElements, events) => {
-    agendaHTMLElements.forEach(element => {
-        onClick
-    })
-}*/
+
 
 const eventIsReach = (event) => {
     console.log('test', event)
@@ -136,4 +137,5 @@ export {isInFuture,
         formatDateForDisplay, 
         parseEvents,
         isAdmin,
-        sortEventsByUser}
+        sortEventsByUser, 
+        isLoading}

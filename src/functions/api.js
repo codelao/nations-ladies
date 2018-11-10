@@ -4,9 +4,9 @@ var moment = require('moment');
 var api = {}
 var CircularJSON = require('circular-json');
 var users = ['sethlaolu@gmail.com','princessdami@gmail.com', "ayekod@gmail.com", "info@nationsladies.org.uk", "renee.a.sterling@gmail.com",
-"adobea.atsrefi@gmail.com", "pammaugile@gmail.com", "info@nationsladies.org.uk"]
+"adobea.atsrefi@gmail.com", "pammaugile@gmail.com", "info@nationsladies.org.uk", "dmburwell@gmail.com"]
 const calendarUrl = 'https://us-central1-nations-ladies.cloudfunctions.net/myCalendar/';
-const adminEmail = 'sethlaolu@gmail.com'
+const adminEmail = ['sethlaolu@gmail.com', 'princessdami@gmail.com', "dmburwell@gmail.com"]
 
 
 
@@ -40,7 +40,7 @@ auth.onAuthStateChanged(user => {
         localStorage.setItem('email', user.email);
         if(localStorage.getItem('logged') === null){
             localStorage.setItem('logged', 'true')
-            if(user.email === adminEmail){
+            if(adminEmail.some(email => email === user.email)){
                 localStorage.setItem('isAdmin', 'yes')
             }
             history.push('/mentorhome')

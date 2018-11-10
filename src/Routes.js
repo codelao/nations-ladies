@@ -53,18 +53,6 @@ const AuthenticatedRoutes = (
         </Switch> 
 )
 
-const Footer = (
-  <div class="Footer"></div>
-)
-
-function MakeRoutes(path, component){
-  return <Route exact path={`/${path}`} component={component}/>
-}
-
-
-
-
-
 
 export const makeMainRoutes = () => {
   console.log('bool', localStorage.getItem('logged'))
