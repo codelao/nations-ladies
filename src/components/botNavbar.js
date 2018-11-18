@@ -17,7 +17,7 @@ const LoggedInBottomNav = (addChapterMeeting, addReachMeeting) =>{
                 <NavLink to={"/calendar"}>Calendar</NavLink>
                 </NavItem>
                 <NavItem >
-                <NavLink to={"/chapterexec"}>Chapter Exec Committee</NavLink>
+                <NavLink to={"/chapterexec"}>Committee</NavLink>
                     </NavItem>
                 <NavItem >
                 <NavLink to={"/paydues"}>Pay Dues</NavLink>
@@ -32,7 +32,7 @@ const LoggedInBottomNav = (addChapterMeeting, addReachMeeting) =>{
                         <NavLink to={"/#"}>New Chapter Meeting</NavLink>
             </NavItem>)}
                 <NavItem onClick={addReachMeeting}>
-                   <NavLink to={"/#"}>Reach Mentoring Appointment</NavLink>
+                   <NavLink to={"/#"}>New Reach Meeting</NavLink>
                 </NavItem>  
             </Nav>
     )

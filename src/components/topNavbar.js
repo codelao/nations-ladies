@@ -4,7 +4,7 @@ import img from "../images/Links_GREEN_Logo.png";
 
 function topNav(logged, login, logout) {
           return (
-            <Navbar id="topnavLI">
+            <Navbar id="topnavtext">
               {logged === 'true'&&(
                 <Nav pullLeft={true} navbar={true} bsStyle={"tabs"} id="topnavtext">
                 <a href="/" id="logo_a" onClick={logout}><img alt="logo" id="imglogo" src={img}/></a>
@@ -17,7 +17,7 @@ function topNav(logged, login, logout) {
               </Nav>
             )}{logged !== 'true'&&(
               <Nav id="topnavtext">
-              <a href="/" id="logo_a" onClick={logout}><img alt="logo" id="img_logo" src={img}/></a>
+              <a href="/" id="logo_a" onClick={logout}><img alt="logo" id="imglogo" src={img}/></a>
               <NavItem>
             <NavLink to={"/"}>Home</NavLink>
         </NavItem>
