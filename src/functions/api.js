@@ -1,15 +1,17 @@
 import history from "../components/history"
+import React from "react"
+import ReactDOM from "react-dom";
 var firebase = require("firebase");
 var moment = require('moment');
 var api = {}
 var CircularJSON = require('circular-json');
+var shortID = require('shortid').generate;
+
+
 var users = ['sethlaolu@gmail.com','princessdami@gmail.com', "ayekod@gmail.com", "info@nationsladies.org.uk", "renee.a.sterling@gmail.com",
 "adobea.atsrefi@gmail.com", "pammaugile@gmail.com", "info@nationsladies.org.uk", "dmburwell@gmail.com"]
 const calendarUrl = 'https://us-central1-nations-ladies.cloudfunctions.net/myCalendar/';
 const adminEmail = ['sethlaolu@gmail.com', 'princessdami@gmail.com', "dmburwell@gmail.com"]
-
-
-
 var config = {
     apiKey: "AIzaSyCaLP-xSucfV-BCCPHx2s00wbrXT64Az1w",
     authDomain: "nations-ladies.firebaseapp.com",
@@ -19,6 +21,8 @@ var config = {
     messagingSenderId: "571565851553",
 };
 var fire = firebase.initializeApp(config);
+let database = firebase.database();
+
 const auth = fire.auth()
 var db = fire.firestore();
 db.settings({
@@ -57,6 +61,10 @@ auth.onAuthStateChanged(user => {
 })
 
 var minutes = db.collection("minutes")
+
+api.writeUserDataInDatabase = () => {
+    
+}
 
 api.login = () => {
         var provider = new firebase.auth.GoogleAuthProvider();
@@ -118,45 +126,41 @@ api.getEvents = () => {
 
 api.uploadMinutes = (files, event)=> {
     var name = files[0].name;
-    var newRef = firebase.storage().ref().child(name)
+    let ID = shortID()
     var metadata = {
-        customMetadata: event
+        metaID: ID,
+        name:name
     }
-    minutes.doc(name).set({
-        name: name,
-        exists: true,
-        created: moment()
+    var newRef = firebase.storage().ref().child(name)
+    console.log('metadat', metadata);
+    database.ref('files/' + ID).set({
+        metadata:metadata
     })
-    .then(()=> {
-        console.log('successfully saved')
-    })
-    .catch(function(error) {
-        console.error("Error writing document: ", error);
-    });
     newRef.put(files[0], metadata).then((res)=> {
         console.log('file uploaded')
     }).catch(console.log)
 }
 
+let ref = firebase.storage().ref()
+
 api.getAllFileNames = () => {
-    return minutes.where("exists", "==", "true")
-            .then(queryResult => {
-                console.log(queryResult)
-                return queryResult.map(query => query.name)
+    return database.ref('files').once('value').then(snapshot => {
+        console.log('val', Object.values(snapshot.val()).map(value => value.metadata.name))
+        localStorage.setItem('filenames', JSON.stringify(Object.values(snapshot.val()).map(value => value.metadata.name)))
+        let childKeys = Object.values(snapshot.val()).map(value => value.metadata.name)
+        return childKeys.map((key, index) => {
+            return ref.child(key).getDownloadURL()
+            .then(url => {
+                if(index > 0){
+                    let previouslyStoredUrls = localStorage.getItem('url');
+                    url = previouslyStoredUrls + '///' + url
+                }
+                localStorage.setItem("url", url)
             })
-            .catch(console.log)
+        })
+    })
 }
 
-api.downloadFile = (name) => {
-    return firebase.storage()
-                         .ref().child(name)
-                         .getDownloadURL()
-                         .then((url)=> {
-                             let link = document.getElementById(name);
-                             link.a = url;
-                         })
-                         .catch(console.log)
-}
 
 api.update = (data) => {
     return fetch(calendarUrl + 'updatemeeting', {

@@ -41,7 +41,6 @@ const LoggedInBottomNav = (addChapterMeeting, addReachMeeting) =>{
 const LoggedOutBottomNav = () => {
     return (
         <Nav pullLeft={true} navbar={true} bsStyle={"tabs"} id="botnavtext">
-
     </Nav>
     )
 }
