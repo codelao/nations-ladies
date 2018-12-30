@@ -7,7 +7,6 @@ function topNav(logged, login, logout) {
             <Navbar id="topnavtext">
               {logged === 'true'&&(
                 <Nav pullLeft={true} navbar={true} bsStyle={"tabs"} id="topnavtext">
-                <div id="filler"/>
                 <a href="/" id="logo_a" onClick={logout}><img alt="logo" id="imglogo" src={img}/></a>
                 <NavItem eventkey={1}>
                 <NavLink to="/#">{localStorage.getItem('display')}

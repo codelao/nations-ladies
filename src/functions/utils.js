@@ -20,6 +20,8 @@ summary:""
 id:""
 */
 
+
+
 const getMatchPath = () => {
     const {pathname} = history.location;
     return matchPath(pathname, {
@@ -56,8 +58,6 @@ const convertDateToMoment = (originalDate) => {
     return convertedDate;
 }
 
-
-
 const eventIsReach = (event) => {
     console.log('test', event)
     return event.extendedProperties.shared.isReach === 'true'
@@ -75,6 +75,10 @@ const eventCreatedByCurrentUser = (event) => {
     }else{
         return event.extendedProperties.email === localStorage.getItem('email')
     }
+}
+
+const userInvitedToEvent = (event) => {
+    return event.attendees.some(attendee => attendee.email === localStorage.getItem("email"));
 }
 
 const formatEvent = (event) => {
